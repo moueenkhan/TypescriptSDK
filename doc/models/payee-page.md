@@ -7,10 +7,10 @@
 
 ## Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `meta` | [`Meta \| undefined`](../../doc/models/meta.md) | Optional | - |
-| `results` | [`Payee[] \| undefined`](../../doc/models/payee.md) | Optional | - |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `meta` | [`?Meta`](../../doc/models/meta.md) | Optional | - | getMeta(): ?Meta | setMeta(?Meta meta): void |
+| `results` | [`?(Payee[])`](../../doc/models/payee.md) | Optional | - | getResults(): ?array | setResults(?array results): void |
 
 ## Example (as JSON)
 

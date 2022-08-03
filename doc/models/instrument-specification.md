@@ -7,15 +7,15 @@
 
 ## Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `name` | `string \| undefined` | Optional | - |
-| `displayName` | `string \| undefined` | Optional | - |
-| `supportedCountries` | `string[] \| undefined` | Optional | ISO 3166-1 alpha-2 or alpha-3 country codes. |
-| `supportedCurrencies` | `string[] \| undefined` | Optional | - |
-| `requiredFields` | `string[] \| undefined` | Optional | - |
-| `details` | [`FieldSpecification[] \| undefined`](../../doc/models/field-specification.md) | Optional | - |
-| `fingerprints` | [`FingerprintSpecification[] \| undefined`](../../doc/models/fingerprint-specification.md) | Optional | - |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `name` | `?string` | Optional | - | getName(): ?string | setName(?string name): void |
+| `displayName` | `?string` | Optional | - | getDisplayName(): ?string | setDisplayName(?string displayName): void |
+| `supportedCountries` | `?(string[])` | Optional | ISO 3166-1 alpha-2 or alpha-3 country codes. | getSupportedCountries(): ?array | setSupportedCountries(?array supportedCountries): void |
+| `supportedCurrencies` | `?(string[])` | Optional | - | getSupportedCurrencies(): ?array | setSupportedCurrencies(?array supportedCurrencies): void |
+| `requiredFields` | `?(string[])` | Optional | - | getRequiredFields(): ?array | setRequiredFields(?array requiredFields): void |
+| `details` | [`?(FieldSpecification[])`](../../doc/models/field-specification.md) | Optional | - | getDetails(): ?array | setDetails(?array details): void |
+| `fingerprints` | [`?(FingerprintSpecification[])`](../../doc/models/fingerprint-specification.md) | Optional | - | getFingerprints(): ?array | setFingerprints(?array fingerprints): void |
 
 ## Example (as JSON)
 

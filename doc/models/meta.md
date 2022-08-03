@@ -7,10 +7,10 @@
 
 ## Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `offset` | `bigint \| undefined` | Optional | - |
-| `size` | `bigint \| undefined` | Optional | - |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `offset` | `?int` | Optional | - | getOffset(): ?int | setOffset(?int offset): void |
+| `size` | `?int` | Optional | - | getSize(): ?int | setSize(?int size): void |
 
 ## Example (as JSON)
 

@@ -7,13 +7,13 @@
 
 ## Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `type` | `string \| undefined` | Optional | - |
-| `parent` | [`Parent \| undefined`](../../doc/models/parent.md) | Optional | - |
-| `displayName` | `string \| undefined` | Optional | - |
-| `capabilities` | [`Capabilities \| undefined`](../../doc/models/capabilities.md) | Optional | - |
-| `preferences` | `unknown \| undefined` | Optional | - |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `type` | `?string` | Optional | - | getType(): ?string | setType(?string type): void |
+| `parent` | [`?Parent`](../../doc/models/parent.md) | Optional | - | getParent(): ?Parent | setParent(?Parent parent): void |
+| `displayName` | `?string` | Optional | - | getDisplayName(): ?string | setDisplayName(?string displayName): void |
+| `capabilities` | [`?Capabilities`](../../doc/models/capabilities.md) | Optional | - | getCapabilities(): ?Capabilities | setCapabilities(?Capabilities capabilities): void |
+| `preferences` | `?array` | Optional | - | getPreferences(): ?array | setPreferences(?array preferences): void |
 
 ## Example (as JSON)
 

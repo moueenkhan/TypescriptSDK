@@ -9,6 +9,6 @@
 
 | Name |
 |  --- |
-| `mERCHANT` |
-| `sUBMERCHANT` |
+| `MERCHANT` |
+| `SUB_MERCHANT` |
 

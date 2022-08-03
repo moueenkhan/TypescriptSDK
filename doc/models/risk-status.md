@@ -7,12 +7,12 @@
 
 ## Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `decision` | [`RiskDecisionEnum \| undefined`](../../doc/models/risk-decision-enum.md) | Optional | - |
-| `declinedReasons` | `string[] \| undefined` | Optional | - |
-| `requiredActions` | [`RiskRequiredAction[] \| undefined`](../../doc/models/risk-required-action.md) | Optional | - |
-| `history` | [`RiskStatusHistory[] \| undefined`](../../doc/models/risk-status-history.md) | Optional | - |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `decision` | [`?string (RiskDecisionEnum)`](../../doc/models/risk-decision-enum.md) | Optional | - | getDecision(): ?string | setDecision(?string decision): void |
+| `declinedReasons` | `?(string[])` | Optional | - | getDeclinedReasons(): ?array | setDeclinedReasons(?array declinedReasons): void |
+| `requiredActions` | [`?(RiskRequiredAction[])`](../../doc/models/risk-required-action.md) | Optional | - | getRequiredActions(): ?array | setRequiredActions(?array requiredActions): void |
+| `history` | [`?(RiskStatusHistory[])`](../../doc/models/risk-status-history.md) | Optional | - | getHistory(): ?array | setHistory(?array history): void |
 
 ## Example (as JSON)
 

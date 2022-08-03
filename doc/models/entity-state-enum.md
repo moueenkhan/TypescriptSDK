@@ -9,7 +9,7 @@
 
 | Name |
 |  --- |
-| `eNABLED` |
-| `dISABLED` |
-| `uSERDISABLED` |
+| `ENABLED` |
+| `DISABLED` |
+| `USER_DISABLED` |
 

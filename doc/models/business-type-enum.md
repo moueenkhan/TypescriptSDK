@@ -9,9 +9,9 @@
 
 | Name |
 |  --- |
-| `sOLEPROPRIETOR` |
-| `pARTNERSHIP` |
-| `sCORP` |
-| `lLC` |
-| `cORPORATION` |
+| `SOLE_PROPRIETOR` |
+| `PARTNERSHIP` |
+| `S_CORP` |
+| `LLC` |
+| `CORPORATION` |
 

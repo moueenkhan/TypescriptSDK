@@ -9,9 +9,9 @@
 
 | Name |
 |  --- |
-| `mARKETPLACE` |
-| `mERCHANT` |
-| `sUBMERCHANT` |
-| `cUSTOMER` |
-| `pAYEE` |
+| `MARKETPLACE` |
+| `MERCHANT` |
+| `SUB_MERCHANT` |
+| `CUSTOMER` |
+| `PAYEE` |
 

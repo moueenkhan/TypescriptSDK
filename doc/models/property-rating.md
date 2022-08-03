@@ -7,13 +7,13 @@
 
 ## Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `score` | `number \| undefined` | Optional | TODO: figure out what this is! |
-| `rating` | `number \| undefined` | Optional | - |
-| `ratingCount` | `number \| undefined` | Optional | - |
-| `inquiryCount` | `number \| undefined` | Optional | - |
-| `complaintCount` | `number \| undefined` | Optional | - |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `score` | `?float` | Optional | TODO: figure out what this is! | getScore(): ?float | setScore(?float score): void |
+| `rating` | `?float` | Optional | - | getRating(): ?float | setRating(?float rating): void |
+| `ratingCount` | `?int` | Optional | - | getRatingCount(): ?int | setRatingCount(?int ratingCount): void |
+| `inquiryCount` | `?int` | Optional | - | getInquiryCount(): ?int | setInquiryCount(?int inquiryCount): void |
+| `complaintCount` | `?int` | Optional | - | getComplaintCount(): ?int | setComplaintCount(?int complaintCount): void |
 
 ## Example (as JSON)
 

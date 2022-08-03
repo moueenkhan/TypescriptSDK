@@ -7,9 +7,9 @@
 
 ## Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `granted` | [`Capability[] \| undefined`](../../doc/models/capability.md) | Optional | - |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `granted` | [`?(Capability[])`](../../doc/models/capability.md) | Optional | - | getGranted(): ?array | setGranted(?array granted): void |
 
 ## Example (as JSON)
 

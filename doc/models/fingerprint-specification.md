@@ -7,10 +7,10 @@
 
 ## Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `type` | `string \| undefined` | Optional | - |
-| `fields` | `string[] \| undefined` | Optional | - |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `type` | `?string` | Optional | - | getType(): ?string | setType(?string type): void |
+| `fields` | `?(string[])` | Optional | - | getFields(): ?array | setFields(?array fields): void |
 
 ## Example (as JSON)
 

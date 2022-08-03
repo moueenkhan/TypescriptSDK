@@ -9,6 +9,6 @@
 
 | Name |
 |  --- |
-| `sINGLECHARGE` |
-| `mULTIPLECHARGES` |
+| `SINGLE_CHARGE` |
+| `MULTIPLE_CHARGES` |
 

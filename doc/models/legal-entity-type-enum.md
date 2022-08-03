@@ -11,6 +11,6 @@ the second description of type parameter
 
 | Name |
 |  --- |
-| `iNDIVIDUAL` |
-| `bUSINESS` |
+| `INDIVIDUAL` |
+| `BUSINESS` |
 

@@ -7,13 +7,13 @@
 
 ## Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `id` | `string \| undefined` | Optional | - |
-| `created` | `string \| undefined` | Optional | - |
-| `updated` | `string \| undefined` | Optional | - |
-| `correlationRefs` | [`CorrelationRef[] \| undefined`](../../doc/models/correlation-ref.md) | Optional | - |
-| `metadata` | `Record<string, string> \| undefined` | Optional | - |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `id` | `?string` | Optional | - | getId(): ?string | setId(?string id): void |
+| `created` | `?\DateTime` | Optional | - | getCreated(): ?\DateTime | setCreated(?\DateTime created): void |
+| `updated` | `?\DateTime` | Optional | - | getUpdated(): ?\DateTime | setUpdated(?\DateTime updated): void |
+| `correlationRefs` | [`?(CorrelationRef[])`](../../doc/models/correlation-ref.md) | Optional | - | getCorrelationRefs(): ?array | setCorrelationRefs(?array correlationRefs): void |
+| `metadata` | `?array<string,string>` | Optional | - | getMetadata(): ?array | setMetadata(?array metadata): void |
 
 ## Example (as JSON)
 

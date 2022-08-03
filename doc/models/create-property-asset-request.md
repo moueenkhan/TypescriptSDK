@@ -11,15 +11,15 @@
 
 ## Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `name` | `string \| undefined` | Optional | - |
-| `address` | [`Address \| undefined`](../../doc/models/address.md) | Optional | - |
-| `details` | [`PropertyDetails \| undefined`](../../doc/models/property-details.md) | Optional | - |
-| `rating` | [`PropertyRating \| undefined`](../../doc/models/property-rating.md) | Optional | - |
-| `reservationPolicy` | [`PropertyReservationPolicy \| undefined`](../../doc/models/property-reservation-policy.md) | Optional | - |
-| `rateDetails` | [`PropertyRateDetails \| undefined`](../../doc/models/property-rate-details.md) | Optional | - |
-| `bookingHistory` | [`PropertyBookingHistory \| undefined`](../../doc/models/property-booking-history.md) | Optional | - |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `name` | `?string` | Optional | - | getName(): ?string | setName(?string name): void |
+| `address` | [`?Address`](../../doc/models/address.md) | Optional | - | getAddress(): ?Address | setAddress(?Address address): void |
+| `details` | [`?PropertyDetails`](../../doc/models/property-details.md) | Optional | - | getDetails(): ?PropertyDetails | setDetails(?PropertyDetails details): void |
+| `rating` | [`?PropertyRating`](../../doc/models/property-rating.md) | Optional | - | getRating(): ?PropertyRating | setRating(?PropertyRating rating): void |
+| `reservationPolicy` | [`?PropertyReservationPolicy`](../../doc/models/property-reservation-policy.md) | Optional | - | getReservationPolicy(): ?PropertyReservationPolicy | setReservationPolicy(?PropertyReservationPolicy reservationPolicy): void |
+| `rateDetails` | [`?PropertyRateDetails`](../../doc/models/property-rate-details.md) | Optional | - | getRateDetails(): ?PropertyRateDetails | setRateDetails(?PropertyRateDetails rateDetails): void |
+| `bookingHistory` | [`?PropertyBookingHistory`](../../doc/models/property-booking-history.md) | Optional | - | getBookingHistory(): ?PropertyBookingHistory | setBookingHistory(?PropertyBookingHistory bookingHistory): void |
 
 ## Example (as JSON)
 

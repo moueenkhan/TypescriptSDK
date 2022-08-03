@@ -7,9 +7,9 @@
 
 ## Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `performVerification` | `boolean \| undefined` | Optional | **Default**: `true` |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `performVerification` | `?bool` | Optional | **Default**: `true` | getPerformVerification(): ?bool | setPerformVerification(?bool performVerification): void |
 
 ## Example (as JSON)
 

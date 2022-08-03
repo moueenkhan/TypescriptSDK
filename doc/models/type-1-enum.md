@@ -9,6 +9,6 @@
 
 | Name |
 |  --- |
-| `tERMSOFSERVICE` |
-| `dIRECTDEBIT` |
+| `TERMS_OF_SERVICE` |
+| `DIRECT_DEBIT` |
 

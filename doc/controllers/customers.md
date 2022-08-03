@@ -1,7 +1,7 @@
 # Customers
 
-```ts
-const customersController = new CustomersController(client);
+```php
+$customersController = $client->getCustomersController();
 ```
 
 ## Class Name
@@ -22,31 +22,29 @@ const customersController = new CustomersController(client);
 
 Retrieve all Customers.
 
-```ts
-async getCustomers(
-  offset?: number,
-  limit?: number,
-  correlationRefLabel?: string,
-  correlationRefValue?: string,
-  marketplaceId?: string,
-  merchantId?: string,
-  internalUseOnly?: boolean,
-  requestOptions?: RequestOptions
-): Promise<ApiResponse<CustomerPage>>
+```php
+function getCustomers(
+    ?int $offset = 0,
+    ?int $limit = 20,
+    ?string $correlationRefLabel = null,
+    ?string $correlationRefValue = null,
+    ?string $marketplaceId = null,
+    ?string $merchantId = null,
+    ?bool $internalUseOnly = false
+): CustomerPage
 ```
 
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `offset` | `number \| undefined` | Query, Optional | Offset the list of returned results by this amount. Default is `0`.<br>**Default**: `0` |
-| `limit` | `number \| undefined` | Query, Optional | Number of items to retrieve.<br>**Default**: `20` |
-| `correlationRefLabel` | `string \| undefined` | Query, Optional | Filter by `correlationRef.label`. |
-| `correlationRefValue` | `string \| undefined` | Query, Optional | Filter by `correlationRef.value`. |
-| `marketplaceId` | `string \| undefined` | Query, Optional | Filter by `marketplaceId`. |
-| `merchantId` | `string \| undefined` | Query, Optional | Filter by `merchantId`. |
-| `internalUseOnly` | `boolean \| undefined` | Query, Optional | Indicates that internal-use-only fields should be returned.<br>**Default**: `false` |
-| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
+| `offset` | `?int` | Query, Optional | Offset the list of returned results by this amount. Default is `0`.<br>**Default**: `0` |
+| `limit` | `?int` | Query, Optional | Number of items to retrieve.<br>**Default**: `20` |
+| `correlationRefLabel` | `?string` | Query, Optional | Filter by `correlationRef.label`. |
+| `correlationRefValue` | `?string` | Query, Optional | Filter by `correlationRef.value`. |
+| `marketplaceId` | `?string` | Query, Optional | Filter by `marketplaceId`. |
+| `merchantId` | `?string` | Query, Optional | Filter by `merchantId`. |
+| `internalUseOnly` | `?bool` | Query, Optional | Indicates that internal-use-only fields should be returned.<br>**Default**: `false` |
 
 ## Response Type
 
@@ -54,20 +52,12 @@ async getCustomers(
 
 ## Example Usage
 
-```ts
-const offset = 0;
-const limit = 20;
-const internalUseOnly = false;
-try {
-  const { result, ...httpResponse } = await customersController.getCustomers(offset, limit, None, None, None, None, internalUseOnly);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
-} catch(error) {
-  if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
-  }
-}
+```php
+$offset = 0;
+$limit = 20;
+$internalUseOnly = false;
+
+$result = $customersController->getCustomers($offset, $limit, null, null, null, null, $internalUseOnly);
 ```
 
 
@@ -75,13 +65,12 @@ try {
 
 Create a Customer.
 
-```ts
-async createCustomer(
-  request: CreateCustomerRequest,
-  xYapStoneIdempotentKey?: string,
-  internalUseOnly?: boolean,
-  requestOptions?: RequestOptions
-): Promise<ApiResponse<Customer>>
+```php
+function createCustomer(
+    CreateCustomerRequest $request,
+    ?string $xYapStoneIdempotentKey = null,
+    ?bool $internalUseOnly = false
+): Customer
 ```
 
 ## Parameters
@@ -89,9 +78,8 @@ async createCustomer(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `request` | [`CreateCustomerRequest`](../../doc/models/create-customer-request.md) | Body, Required | - |
-| `xYapStoneIdempotentKey` | `string \| undefined` | Header, Optional | - |
-| `internalUseOnly` | `boolean \| undefined` | Query, Optional | Indicates that internal-use-only fields should be returned.<br>**Default**: `false` |
-| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
+| `xYapStoneIdempotentKey` | `?string` | Header, Optional | - |
+| `internalUseOnly` | `?bool` | Query, Optional | Indicates that internal-use-only fields should be returned.<br>**Default**: `false` |
 
 ## Response Type
 
@@ -99,47 +87,35 @@ async createCustomer(
 
 ## Example Usage
 
-```ts
-const requestLegalEntity: LegalEntityRequest = {
-  type: 'INDIVIDUAL',
-};
+```php
+$request_country = 'country0';
+$request_legalEntity_type = Models\LegalEntityTypeEnum::INDIVIDUAL;
+$request_legalEntity = new Models\LegalEntityRequest(
+    $request_legalEntity_type
+);
+$request = new Models\CreateCustomerRequest(
+    $request_country,
+    $request_legalEntity
+);
+$internalUseOnly = false;
 
-const request: CreateCustomerRequest = {
-  country: 'country0',
-  legalEntity: requestLegalEntity,
-};
-
-const internalUseOnly = false;
-try {
-  const { result, ...httpResponse } = await customersController.createCustomer(request, None, internalUseOnly);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
-} catch(error) {
-  if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
-  }
-}
+$result = $customersController->createCustomer($request, null, $internalUseOnly);
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 409 | Conflict | [`ErrorsError`](../../doc/models/errors-error.md) |
-| 422 | Unprocessable Entity | [`ErrorsError`](../../doc/models/errors-error.md) |
+| 409 | Conflict | [`ErrorsException`](../../doc/models/errors-exception.md) |
+| 422 | Unprocessable Entity | [`ErrorsException`](../../doc/models/errors-exception.md) |
 
 
 # Get Customer
 
 Retrieve a Customer by id.
 
-```ts
-async getCustomer(
-  id: string,
-  internalUseOnly?: boolean,
-  requestOptions?: RequestOptions
-): Promise<ApiResponse<Customer>>
+```php
+function getCustomer(string $id, ?bool $internalUseOnly = false): Customer
 ```
 
 ## Parameters
@@ -147,8 +123,7 @@ async getCustomer(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `id` | `string` | Template, Required | - |
-| `internalUseOnly` | `boolean \| undefined` | Query, Optional | Indicates that internal-use-only fields should be returned.<br>**Default**: `false` |
-| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
+| `internalUseOnly` | `?bool` | Query, Optional | Indicates that internal-use-only fields should be returned.<br>**Default**: `false` |
 
 ## Response Type
 
@@ -156,40 +131,31 @@ async getCustomer(
 
 ## Example Usage
 
-```ts
-const id = 'id0';
-const internalUseOnly = false;
-try {
-  const { result, ...httpResponse } = await customersController.getCustomer(id, internalUseOnly);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
-} catch(error) {
-  if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
-  }
-}
+```php
+$id = 'id0';
+$internalUseOnly = false;
+
+$result = $customersController->getCustomer($id, $internalUseOnly);
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not Found | [`ErrorsError`](../../doc/models/errors-error.md) |
+| 404 | Not Found | [`ErrorsException`](../../doc/models/errors-exception.md) |
 
 
 # Update Customer
 
 Update a Customer by id.
 
-```ts
-async updateCustomer(
-  id: string,
-  request: UpdateCustomerRequest,
-  xYapStoneIdempotentKey?: string,
-  internalUseOnly?: boolean,
-  requestOptions?: RequestOptions
-): Promise<ApiResponse<Customer>>
+```php
+function updateCustomer(
+    string $id,
+    UpdateCustomerRequest $request,
+    ?string $xYapStoneIdempotentKey = null,
+    ?bool $internalUseOnly = false
+): Customer
 ```
 
 ## Parameters
@@ -198,9 +164,8 @@ async updateCustomer(
 |  --- | --- | --- | --- |
 | `id` | `string` | Template, Required | - |
 | `request` | [`UpdateCustomerRequest`](../../doc/models/update-customer-request.md) | Body, Required | - |
-| `xYapStoneIdempotentKey` | `string \| undefined` | Header, Optional | - |
-| `internalUseOnly` | `boolean \| undefined` | Query, Optional | Indicates that internal-use-only fields should be returned.<br>**Default**: `false` |
-| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
+| `xYapStoneIdempotentKey` | `?string` | Header, Optional | - |
+| `internalUseOnly` | `?bool` | Query, Optional | Indicates that internal-use-only fields should be returned.<br>**Default**: `false` |
 
 ## Response Type
 
@@ -208,48 +173,37 @@ async updateCustomer(
 
 ## Example Usage
 
-```ts
-const id = 'id0';
-const requestLegalEntity: LegalEntityRequest = {
-  type: 'INDIVIDUAL',
-};
+```php
+$id = 'id0';
+$request_country = 'country0';
+$request_legalEntity_type = Models\LegalEntityTypeEnum::INDIVIDUAL;
+$request_legalEntity = new Models\LegalEntityRequest(
+    $request_legalEntity_type
+);
+$request = new Models\UpdateCustomerRequest(
+    $request_country,
+    $request_legalEntity
+);
+$internalUseOnly = false;
 
-const request: UpdateCustomerRequest = {
-  country: 'country0',
-  legalEntity: requestLegalEntity,
-};
-
-const internalUseOnly = false;
-try {
-  const { result, ...httpResponse } = await customersController.updateCustomer(id, request, None, internalUseOnly);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
-} catch(error) {
-  if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
-  }
-}
+$result = $customersController->updateCustomer($id, $request, null, $internalUseOnly);
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not Found | [`ErrorsError`](../../doc/models/errors-error.md) |
-| 409 | Conflict | [`ErrorsError`](../../doc/models/errors-error.md) |
-| 422 | Unprocessable Entity | [`ErrorsError`](../../doc/models/errors-error.md) |
+| 404 | Not Found | [`ErrorsException`](../../doc/models/errors-exception.md) |
+| 409 | Conflict | [`ErrorsException`](../../doc/models/errors-exception.md) |
+| 422 | Unprocessable Entity | [`ErrorsException`](../../doc/models/errors-exception.md) |
 
 
 # Delete Customer
 
 Delete a Customer by id.
 
-```ts
-async deleteCustomer(
-  id: string,
-  requestOptions?: RequestOptions
-): Promise<ApiResponse<Customer>>
+```php
+function deleteCustomer(string $id): Customer
 ```
 
 ## Parameters
@@ -257,7 +211,6 @@ async deleteCustomer(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `id` | `string` | Template, Required | - |
-| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
 
@@ -265,36 +218,25 @@ async deleteCustomer(
 
 ## Example Usage
 
-```ts
-const id = 'id0';
-try {
-  const { result, ...httpResponse } = await customersController.deleteCustomer(id);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
-} catch(error) {
-  if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
-  }
-}
+```php
+$id = 'id0';
+
+$result = $customersController->deleteCustomer($id);
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not Found | [`ErrorsError`](../../doc/models/errors-error.md) |
+| 404 | Not Found | [`ErrorsException`](../../doc/models/errors-exception.md) |
 
 
 # Verify Customer
 
 Perform verification of a Customers supplied details.
 
-```ts
-async verifyCustomer(
-  id: string,
-  requestOptions?: RequestOptions
-): Promise<ApiResponse<Customer>>
+```php
+function verifyCustomer(string $id): Customer
 ```
 
 ## Parameters
@@ -302,7 +244,6 @@ async verifyCustomer(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `id` | `string` | Template, Required | - |
-| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
 
@@ -310,17 +251,9 @@ async verifyCustomer(
 
 ## Example Usage
 
-```ts
-const id = 'id0';
-try {
-  const { result, ...httpResponse } = await customersController.verifyCustomer(id);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
-} catch(error) {
-  if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
-  }
-}
+```php
+$id = 'id0';
+
+$result = $customersController->verifyCustomer($id);
 ```
 

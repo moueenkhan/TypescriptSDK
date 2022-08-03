@@ -9,8 +9,8 @@
 
 | Name |
 |  --- |
-| `dAILY` |
-| `wEEKLY` |
-| `mONTHLY` |
-| `yEARLY` |
+| `DAILY` |
+| `WEEKLY` |
+| `MONTHLY` |
+| `YEARLY` |
 

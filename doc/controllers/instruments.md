@@ -1,7 +1,7 @@
 # Instruments
 
-```ts
-const instrumentsController = new InstrumentsController(client);
+```php
+$instrumentsController = $client->getInstrumentsController();
 ```
 
 ## Class Name
@@ -22,33 +22,31 @@ const instrumentsController = new InstrumentsController(client);
 
 Retrieve all Instruments.
 
-```ts
-async getInstruments(
-  offset?: number,
-  limit?: number,
-  marketplaceId?: string,
-  merchantId?: string,
-  customerId?: string,
-  correlationRefLabel?: string,
-  correlationRefValue?: string,
-  internalUseOnly?: boolean,
-  requestOptions?: RequestOptions
-): Promise<ApiResponse<InstrumentPage>>
+```php
+function getInstruments(
+    ?int $offset = 0,
+    ?int $limit = 20,
+    ?string $marketplaceId = null,
+    ?string $merchantId = null,
+    ?string $customerId = null,
+    ?string $correlationRefLabel = null,
+    ?string $correlationRefValue = null,
+    ?bool $internalUseOnly = false
+): InstrumentPage
 ```
 
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `offset` | `number \| undefined` | Query, Optional | Offset the list of returned results by this amount. Default is `0`.<br>**Default**: `0` |
-| `limit` | `number \| undefined` | Query, Optional | Number of items to retrieve.<br>**Default**: `20` |
-| `marketplaceId` | `string \| undefined` | Query, Optional | Filter by `marketplaceId`. |
-| `merchantId` | `string \| undefined` | Query, Optional | Filter by `merchantId`. |
-| `customerId` | `string \| undefined` | Query, Optional | Filter by `customerId`. |
-| `correlationRefLabel` | `string \| undefined` | Query, Optional | Filter by `correlationRef.label`. |
-| `correlationRefValue` | `string \| undefined` | Query, Optional | Filter by `correlationRef.value`. |
-| `internalUseOnly` | `boolean \| undefined` | Query, Optional | Indicates that internal-use-only fields should be returned.<br>**Default**: `false` |
-| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
+| `offset` | `?int` | Query, Optional | Offset the list of returned results by this amount. Default is `0`.<br>**Default**: `0` |
+| `limit` | `?int` | Query, Optional | Number of items to retrieve.<br>**Default**: `20` |
+| `marketplaceId` | `?string` | Query, Optional | Filter by `marketplaceId`. |
+| `merchantId` | `?string` | Query, Optional | Filter by `merchantId`. |
+| `customerId` | `?string` | Query, Optional | Filter by `customerId`. |
+| `correlationRefLabel` | `?string` | Query, Optional | Filter by `correlationRef.label`. |
+| `correlationRefValue` | `?string` | Query, Optional | Filter by `correlationRef.value`. |
+| `internalUseOnly` | `?bool` | Query, Optional | Indicates that internal-use-only fields should be returned.<br>**Default**: `false` |
 
 ## Response Type
 
@@ -56,40 +54,31 @@ async getInstruments(
 
 ## Example Usage
 
-```ts
-const offset = 0;
-const limit = 20;
-const internalUseOnly = false;
-try {
-  const { result, ...httpResponse } = await instrumentsController.getInstruments(offset, limit, None, None, None, None, None, internalUseOnly);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
-} catch(error) {
-  if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
-  }
-}
+```php
+$offset = 0;
+$limit = 20;
+$internalUseOnly = false;
+
+$result = $instrumentsController->getInstruments($offset, $limit, null, null, null, null, null, $internalUseOnly);
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request | [`ErrorsError`](../../doc/models/errors-error.md) |
+| 400 | Bad Request | [`ErrorsException`](../../doc/models/errors-exception.md) |
 
 
 # Create Instrument
 
 Create an Instrument.
 
-```ts
-async createInstrument(
-  request: CreateInstrumentRequest,
-  xYapStoneIdempotentKey?: string,
-  internalUseOnly?: boolean,
-  requestOptions?: RequestOptions
-): Promise<ApiResponse<Instrument>>
+```php
+function createInstrument(
+    CreateInstrumentRequest $request,
+    ?string $xYapStoneIdempotentKey = null,
+    ?bool $internalUseOnly = false
+): Instrument
 ```
 
 ## Parameters
@@ -97,9 +86,8 @@ async createInstrument(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `request` | [`CreateInstrumentRequest`](../../doc/models/create-instrument-request.md) | Body, Required | - |
-| `xYapStoneIdempotentKey` | `string \| undefined` | Header, Optional | - |
-| `internalUseOnly` | `boolean \| undefined` | Query, Optional | Indicates that internal-use-only fields should be returned.<br>**Default**: `false` |
-| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
+| `xYapStoneIdempotentKey` | `?string` | Header, Optional | - |
+| `internalUseOnly` | `?bool` | Query, Optional | Indicates that internal-use-only fields should be returned.<br>**Default**: `false` |
 
 ## Response Type
 
@@ -107,55 +95,46 @@ async createInstrument(
 
 ## Example Usage
 
-```ts
-const requestNamesOnAccount: NameOnAccount[] = [];
+```php
+$request_type = 'type4';
+$request_currency = 'currency6';
+$request_country = 'country0';
+$request_namesOnAccount = [];
 
-const requestnamesOnAccount0: NameOnAccount = {
-  type: 'INDIVIDUAL',
-  name: 'name2',
-};
+$request_namesOnAccount_0_type = Models\LegalEntityTypeEnum::INDIVIDUAL;
+$request_namesOnAccount_0_name = 'name2';
+$request_namesOnAccount[0] = new Models\NameOnAccount(
+    $request_namesOnAccount_0_type,
+    $request_namesOnAccount_0_name
+);
 
-requestNamesOnAccount[0] = requestnamesOnAccount0;
+$request_details = ['key0' => 'details1', 'key1' => 'details2'];
+$request = new Models\CreateInstrumentRequest(
+    $request_type,
+    $request_currency,
+    $request_country,
+    $request_namesOnAccount,
+    $request_details
+);
+$internalUseOnly = false;
 
-const requestDetails: Record<string, string> = {'key0' : 'details1', 'key1' : 'details2' } const request: CreateInstrumentRequest = {
-  type: 'type4',
-  currency: 'currency6',
-  country: 'country0',
-  namesOnAccount: requestNamesOnAccount,
-  details: requestDetails,
-};
-
-const internalUseOnly = false;
-try {
-  const { result, ...httpResponse } = await instrumentsController.createInstrument(request, None, internalUseOnly);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
-} catch(error) {
-  if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
-  }
-}
+$result = $instrumentsController->createInstrument($request, null, $internalUseOnly);
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 409 | Conflict | [`ErrorsError`](../../doc/models/errors-error.md) |
-| 422 | Unprocessable Entity | [`ErrorsError`](../../doc/models/errors-error.md) |
+| 409 | Conflict | [`ErrorsException`](../../doc/models/errors-exception.md) |
+| 422 | Unprocessable Entity | [`ErrorsException`](../../doc/models/errors-exception.md) |
 
 
 # Get Instrument
 
 Retrieve an Instrument by id.
 
-```ts
-async getInstrument(
-  id: string,
-  internalUseOnly?: boolean,
-  requestOptions?: RequestOptions
-): Promise<ApiResponse<Instrument>>
+```php
+function getInstrument(string $id, ?bool $internalUseOnly = false): Instrument
 ```
 
 ## Parameters
@@ -163,8 +142,7 @@ async getInstrument(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `id` | `string` | Template, Required | - |
-| `internalUseOnly` | `boolean \| undefined` | Query, Optional | Indicates that internal-use-only fields should be returned.<br>**Default**: `false` |
-| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
+| `internalUseOnly` | `?bool` | Query, Optional | Indicates that internal-use-only fields should be returned.<br>**Default**: `false` |
 
 ## Response Type
 
@@ -172,40 +150,31 @@ async getInstrument(
 
 ## Example Usage
 
-```ts
-const id = 'id0';
-const internalUseOnly = false;
-try {
-  const { result, ...httpResponse } = await instrumentsController.getInstrument(id, internalUseOnly);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
-} catch(error) {
-  if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
-  }
-}
+```php
+$id = 'id0';
+$internalUseOnly = false;
+
+$result = $instrumentsController->getInstrument($id, $internalUseOnly);
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not Found | [`ErrorsError`](../../doc/models/errors-error.md) |
+| 404 | Not Found | [`ErrorsException`](../../doc/models/errors-exception.md) |
 
 
 # Update Instrument
 
 Update an Instrument by id.
 
-```ts
-async updateInstrument(
-  id: string,
-  request: UpdateInstrumentRequest,
-  xYapStoneIdempotentKey?: string,
-  internalUseOnly?: boolean,
-  requestOptions?: RequestOptions
-): Promise<ApiResponse<Instrument>>
+```php
+function updateInstrument(
+    string $id,
+    UpdateInstrumentRequest $request,
+    ?string $xYapStoneIdempotentKey = null,
+    ?bool $internalUseOnly = false
+): Instrument
 ```
 
 ## Parameters
@@ -214,9 +183,8 @@ async updateInstrument(
 |  --- | --- | --- | --- |
 | `id` | `string` | Template, Required | - |
 | `request` | [`UpdateInstrumentRequest`](../../doc/models/update-instrument-request.md) | Body, Required | - |
-| `xYapStoneIdempotentKey` | `string \| undefined` | Header, Optional | - |
-| `internalUseOnly` | `boolean \| undefined` | Query, Optional | Indicates that internal-use-only fields should be returned.<br>**Default**: `false` |
-| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
+| `xYapStoneIdempotentKey` | `?string` | Header, Optional | - |
+| `internalUseOnly` | `?bool` | Query, Optional | Indicates that internal-use-only fields should be returned.<br>**Default**: `false` |
 
 ## Response Type
 
@@ -224,56 +192,48 @@ async updateInstrument(
 
 ## Example Usage
 
-```ts
-const id = 'id0';
-const requestNamesOnAccount: NameOnAccount[] = [];
+```php
+$id = 'id0';
+$request_type = 'type4';
+$request_currency = 'currency6';
+$request_country = 'country0';
+$request_namesOnAccount = [];
 
-const requestnamesOnAccount0: NameOnAccount = {
-  type: 'INDIVIDUAL',
-  name: 'name2',
-};
+$request_namesOnAccount_0_type = Models\LegalEntityTypeEnum::INDIVIDUAL;
+$request_namesOnAccount_0_name = 'name2';
+$request_namesOnAccount[0] = new Models\NameOnAccount(
+    $request_namesOnAccount_0_type,
+    $request_namesOnAccount_0_name
+);
 
-requestNamesOnAccount[0] = requestnamesOnAccount0;
+$request_details = ['key0' => 'details1', 'key1' => 'details2'];
+$request = new Models\UpdateInstrumentRequest(
+    $request_type,
+    $request_currency,
+    $request_country,
+    $request_namesOnAccount,
+    $request_details
+);
+$internalUseOnly = false;
 
-const requestDetails: Record<string, string> = {'key0' : 'details1', 'key1' : 'details2' } const request: UpdateInstrumentRequest = {
-  type: 'type4',
-  currency: 'currency6',
-  country: 'country0',
-  namesOnAccount: requestNamesOnAccount,
-  details: requestDetails,
-};
-
-const internalUseOnly = false;
-try {
-  const { result, ...httpResponse } = await instrumentsController.updateInstrument(id, request, None, internalUseOnly);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
-} catch(error) {
-  if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
-  }
-}
+$result = $instrumentsController->updateInstrument($id, $request, null, $internalUseOnly);
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not Found | [`ErrorsError`](../../doc/models/errors-error.md) |
-| 409 | Conflict | [`ErrorsError`](../../doc/models/errors-error.md) |
-| 422 | Unprocessable Entity | [`ErrorsError`](../../doc/models/errors-error.md) |
+| 404 | Not Found | [`ErrorsException`](../../doc/models/errors-exception.md) |
+| 409 | Conflict | [`ErrorsException`](../../doc/models/errors-exception.md) |
+| 422 | Unprocessable Entity | [`ErrorsException`](../../doc/models/errors-exception.md) |
 
 
 # Delete Instrument
 
 Delete an Instrument by id.
 
-```ts
-async deleteInstrument(
-  id: string,
-  requestOptions?: RequestOptions
-): Promise<ApiResponse<Instrument>>
+```php
+function deleteInstrument(string $id): Instrument
 ```
 
 ## Parameters
@@ -281,7 +241,6 @@ async deleteInstrument(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `id` | `string` | Template, Required | - |
-| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
 
@@ -289,37 +248,25 @@ async deleteInstrument(
 
 ## Example Usage
 
-```ts
-const id = 'id0';
-try {
-  const { result, ...httpResponse } = await instrumentsController.deleteInstrument(id);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
-} catch(error) {
-  if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
-  }
-}
+```php
+$id = 'id0';
+
+$result = $instrumentsController->deleteInstrument($id);
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not Found | [`ErrorsError`](../../doc/models/errors-error.md) |
+| 404 | Not Found | [`ErrorsException`](../../doc/models/errors-exception.md) |
 
 
 # Verify Instrument
 
 Request verification of an Instrument by id.
 
-```ts
-async verifyInstrument(
-  id: string,
-  request: VerifyInstrumentRequest,
-  requestOptions?: RequestOptions
-): Promise<ApiResponse<Instrument>>
+```php
+function verifyInstrument(string $id, VerifyInstrumentRequest $request): Instrument
 ```
 
 ## Parameters
@@ -328,7 +275,6 @@ async verifyInstrument(
 |  --- | --- | --- | --- |
 | `id` | `string` | Template, Required | - |
 | `request` | [`VerifyInstrumentRequest`](../../doc/models/verify-instrument-request.md) | Body, Required | - |
-| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
 
@@ -336,25 +282,16 @@ async verifyInstrument(
 
 ## Example Usage
 
-```ts
-const id = 'id0';
-const request: VerifyInstrumentRequest = {};
+```php
+$id = 'id0';
+$request = new Models\VerifyInstrumentRequest;
 
-try {
-  const { result, ...httpResponse } = await instrumentsController.verifyInstrument(id, request);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
-} catch(error) {
-  if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
-  }
-}
+$result = $instrumentsController->verifyInstrument($id, $request);
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not Found | [`ErrorsError`](../../doc/models/errors-error.md) |
+| 404 | Not Found | [`ErrorsException`](../../doc/models/errors-exception.md) |
 

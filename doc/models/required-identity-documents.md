@@ -9,10 +9,10 @@ When both `allOf` and `oneOf` are specified they should be considered as express
 
 ## Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `allOf` | `string[] \| undefined` | Optional | A list of acceptable identity documents, of which all specified are required. |
-| `oneOf` | `string[] \| undefined` | Optional | A list of acceptable identity documents, from which one is required to be chosen. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `allOf` | `?(string[])` | Optional | A list of acceptable identity documents, of which all specified are required. | getAllOf(): ?array | setAllOf(?array allOf): void |
+| `oneOf` | `?(string[])` | Optional | A list of acceptable identity documents, from which one is required to be chosen. | getOneOf(): ?array | setOneOf(?array oneOf): void |
 
 ## Example (as JSON)
 

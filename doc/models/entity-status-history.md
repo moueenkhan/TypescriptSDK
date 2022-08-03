@@ -7,11 +7,11 @@
 
 ## Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `timestamp` | `string \| undefined` | Optional | - |
-| `state` | [`EntityStateEnum \| undefined`](../../doc/models/entity-state-enum.md) | Optional | - |
-| `disabledReasons` | `string[] \| undefined` | Optional | - |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `timestamp` | `?\DateTime` | Optional | - | getTimestamp(): ?\DateTime | setTimestamp(?\DateTime timestamp): void |
+| `state` | [`?string (EntityStateEnum)`](../../doc/models/entity-state-enum.md) | Optional | - | getState(): ?string | setState(?string state): void |
+| `disabledReasons` | `?(string[])` | Optional | - | getDisabledReasons(): ?array | setDisabledReasons(?array disabledReasons): void |
 
 ## Example (as JSON)
 

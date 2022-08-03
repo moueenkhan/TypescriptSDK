@@ -7,10 +7,10 @@
 
 ## Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `period` | [`PeriodEnum`](../../doc/models/period-enum.md) | Required | - |
-| `amount` | [`Money`](../../doc/models/money.md) | Required | - |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `period` | [`string (PeriodEnum)`](../../doc/models/period-enum.md) | Required | - | getPeriod(): string | setPeriod(string period): void |
+| `amount` | [`Money`](../../doc/models/money.md) | Required | - | getAmount(): Money | setAmount(Money amount): void |
 
 ## Example (as JSON)
 

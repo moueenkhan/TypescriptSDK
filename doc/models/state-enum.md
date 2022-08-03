@@ -9,6 +9,6 @@
 
 | Name |
 |  --- |
-| `iNVALID` |
-| `vALID` |
+| `INVALID` |
+| `VALID` |
 

@@ -9,9 +9,9 @@
 
 | Name |
 |  --- |
-| `uNVERIFIED` |
-| `iNPROGRESS` |
-| `aCTIONREQUIRED` |
-| `vERIFIED` |
-| `dECLINED` |
+| `UNVERIFIED` |
+| `IN_PROGRESS` |
+| `ACTION_REQUIRED` |
+| `VERIFIED` |
+| `DECLINED` |
 

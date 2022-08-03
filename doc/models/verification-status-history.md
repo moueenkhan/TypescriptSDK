@@ -7,12 +7,12 @@
 
 ## Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `timestamp` | `string \| undefined` | Optional | - |
-| `state` | [`VerificationStateEnum \| undefined`](../../doc/models/verification-state-enum.md) | Optional | - |
-| `description` | `string \| undefined` | Optional | - |
-| `requiredActions` | [`VerificationAction[] \| undefined`](../../doc/models/verification-action.md) | Optional | - |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `timestamp` | `?\DateTime` | Optional | - | getTimestamp(): ?\DateTime | setTimestamp(?\DateTime timestamp): void |
+| `state` | [`?string (VerificationStateEnum)`](../../doc/models/verification-state-enum.md) | Optional | - | getState(): ?string | setState(?string state): void |
+| `description` | `?string` | Optional | - | getDescription(): ?string | setDescription(?string description): void |
+| `requiredActions` | [`?(VerificationAction[])`](../../doc/models/verification-action.md) | Optional | - | getRequiredActions(): ?array | setRequiredActions(?array requiredActions): void |
 
 ## Example (as JSON)
 

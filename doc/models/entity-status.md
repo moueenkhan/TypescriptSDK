@@ -7,12 +7,12 @@
 
 ## Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `state` | [`EntityStateEnum \| undefined`](../../doc/models/entity-state-enum.md) | Optional | - |
-| `disabledReasons` | `string[] \| undefined` | Optional | - |
-| `history` | [`EntityStatusHistory[] \| undefined`](../../doc/models/entity-status-history.md) | Optional | - |
-| `validation` | [`ValidationStatus \| undefined`](../../doc/models/validation-status.md) | Optional | - |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `state` | [`?string (EntityStateEnum)`](../../doc/models/entity-state-enum.md) | Optional | - | getState(): ?string | setState(?string state): void |
+| `disabledReasons` | `?(string[])` | Optional | - | getDisabledReasons(): ?array | setDisabledReasons(?array disabledReasons): void |
+| `history` | [`?(EntityStatusHistory[])`](../../doc/models/entity-status-history.md) | Optional | - | getHistory(): ?array | setHistory(?array history): void |
+| `validation` | [`?ValidationStatus`](../../doc/models/validation-status.md) | Optional | - | getValidation(): ?ValidationStatus | setValidation(?ValidationStatus validation): void |
 
 ## Example (as JSON)
 

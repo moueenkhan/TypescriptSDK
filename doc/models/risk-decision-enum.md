@@ -9,8 +9,8 @@
 
 | Name |
 |  --- |
-| `nOTEVALUATED` |
-| `uNDERREVIEW` |
-| `aPPROVED` |
-| `dECLINED` |
+| `NOT_EVALUATED` |
+| `UNDER_REVIEW` |
+| `APPROVED` |
+| `DECLINED` |
 

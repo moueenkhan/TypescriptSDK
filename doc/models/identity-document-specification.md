@@ -7,14 +7,14 @@
 
 ## Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `name` | `string \| undefined` | Optional | - |
-| `displayName` | `string \| undefined` | Optional | - |
-| `types` | [`LegalEntityTypeEnum[] \| undefined`](../../doc/models/legal-entity-type-enum.md) | Optional | - |
-| `supportedCountries` | `string[] \| undefined` | Optional | - |
-| `details` | [`FieldSpecification[] \| undefined`](../../doc/models/field-specification.md) | Optional | - |
-| `fingerprints` | [`FingerprintSpecification[] \| undefined`](../../doc/models/fingerprint-specification.md) | Optional | - |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `name` | `?string` | Optional | - | getName(): ?string | setName(?string name): void |
+| `displayName` | `?string` | Optional | - | getDisplayName(): ?string | setDisplayName(?string displayName): void |
+| `types` | [`?(string[]) (LegalEntityTypeEnum)`](../../doc/models/legal-entity-type-enum.md) | Optional | - | getTypes(): ?array | setTypes(?array types): void |
+| `supportedCountries` | `?(string[])` | Optional | - | getSupportedCountries(): ?array | setSupportedCountries(?array supportedCountries): void |
+| `details` | [`?(FieldSpecification[])`](../../doc/models/field-specification.md) | Optional | - | getDetails(): ?array | setDetails(?array details): void |
+| `fingerprints` | [`?(FingerprintSpecification[])`](../../doc/models/fingerprint-specification.md) | Optional | - | getFingerprints(): ?array | setFingerprints(?array fingerprints): void |
 
 ## Example (as JSON)
 

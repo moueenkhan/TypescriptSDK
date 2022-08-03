@@ -7,11 +7,11 @@
 
 ## Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `field` | `string \| undefined` | Optional | - |
-| `errorCode` | `string \| undefined` | Optional | - |
-| `message` | `string \| undefined` | Optional | - |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `field` | `?string` | Optional | - | getField(): ?string | setField(?string field): void |
+| `errorCode` | `?string` | Optional | - | getErrorCode(): ?string | setErrorCode(?string errorCode): void |
+| `message` | `?string` | Optional | - | getMessage(): ?string | setMessage(?string message): void |
 
 ## Example (as JSON)
 

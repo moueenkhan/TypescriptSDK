@@ -11,6 +11,6 @@ The authentication mechanism to use when making webhook callbacks to client URLs
 
 | Name |
 |  --- |
-| `aUTHORIZATIONHEADER` |
-| `tLSCLIENTAUTHENTICATION` |
+| `AUTHORIZATION_HEADER` |
+| `TLS_CLIENT_AUTHENTICATION` |
 

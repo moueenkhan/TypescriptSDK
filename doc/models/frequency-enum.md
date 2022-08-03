@@ -9,6 +9,6 @@
 
 | Name |
 |  --- |
-| `wEEKLY` |
-| `mONTHLY` |
+| `WEEKLY` |
+| `MONTHLY` |
 

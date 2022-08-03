@@ -9,7 +9,7 @@
 
 | Name |
 |  --- |
-| `fEMALE` |
-| `mALE` |
-| `oTHER` |
+| `FEMALE` |
+| `MALE` |
+| `OTHER` |
 

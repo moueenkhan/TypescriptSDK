@@ -7,9 +7,9 @@
 
 ## Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `details` | `Record<string, string> \| undefined` | Optional | - |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `details` | `?array<string,string>` | Optional | - | getDetails(): ?array | setDetails(?array details): void |
 
 ## Example (as JSON)
 

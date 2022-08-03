@@ -9,11 +9,11 @@
 
 | Name |
 |  --- |
-| `fACEBOOK` |
-| `tWITTER` |
-| `gOOGLEPLUS` |
-| `lINKEDIN` |
-| `pINTEREST` |
-| `iNSTAGRAM` |
-| `sNAPCHAT` |
+| `FACEBOOK` |
+| `TWITTER` |
+| `GOOGLE_PLUS` |
+| `LINKEDIN` |
+| `PINTEREST` |
+| `INSTAGRAM` |
+| `SNAPCHAT` |
 

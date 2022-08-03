@@ -7,10 +7,10 @@
 
 ## Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `code` | `string \| undefined` | Optional | - |
-| `description` | `string \| undefined` | Optional | - |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `code` | `?string` | Optional | - | getCode(): ?string | setCode(?string code): void |
+| `description` | `?string` | Optional | - | getDescription(): ?string | setDescription(?string description): void |
 
 ## Example (as JSON)
 

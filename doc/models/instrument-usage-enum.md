@@ -9,7 +9,7 @@
 
 | Name |
 |  --- |
-| `rEUSABLE` |
-| `oNETIME` |
-| `cONSUMED` |
+| `REUSABLE` |
+| `ONE_TIME` |
+| `CONSUMED` |
 

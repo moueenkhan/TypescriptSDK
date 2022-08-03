@@ -9,5 +9,5 @@
 
 | Name |
 |  --- |
-| `dIRECTDEBIT` |
+| `DIRECT_DEBIT` |
 

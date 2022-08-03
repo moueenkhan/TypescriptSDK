@@ -7,12 +7,12 @@
 
 ## Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `type` | [`Type1Enum`](../../doc/models/type-1-enum.md) | Required | - |
-| `timeOfConsent` | `string` | Required | - |
-| `version` | `number` | Required | - |
-| `frequency` | [`FrequencyEnum \| undefined`](../../doc/models/frequency-enum.md) | Optional | - |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `type` | [`string (Type1Enum)`](../../doc/models/type-1-enum.md) | Required | - | getType(): string | setType(string type): void |
+| `timeOfConsent` | `\DateTime` | Required | - | getTimeOfConsent(): \DateTime | setTimeOfConsent(\DateTime timeOfConsent): void |
+| `version` | `int` | Required | - | getVersion(): int | setVersion(int version): void |
+| `frequency` | [`?string (FrequencyEnum)`](../../doc/models/frequency-enum.md) | Optional | - | getFrequency(): ?string | setFrequency(?string frequency): void |
 
 ## Example (as JSON)
 
